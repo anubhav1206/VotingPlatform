@@ -1,88 +1,98 @@
-# Online Voting System using Blockchain
+# User Guide for the Online Voting System using Blockchain
 
-A decentralized voting system based on [Ethereum blockchain](https://ethereum.org/dapps/) technology.
+Welcome to the Online Voting System based on Ethereum blockchain technology. This guide will walk you through the steps to set up the development environment, register as a voter, and participate in the election. Please follow the instructions carefully.
 
-> This is a project for the course BKT3001
+## Setting up the Development Environment
 
-## System Workflow
-
-A brief explanation on the basic workflow of the application.
-
-- Admin will create a voting instance by launching/deploying the system in a blockchain network (EVM), then create an election instance and start the election with the details of the election filled in (including candidates for voters to vote).
-- Then the likely voters connect to the same blockchain network register to become a voter. Once the users successfully register, their respective details are sent/displayed in the admins' panel (i.e. verification page).
-- The admin then will check if the registration information (blockchain account address, name, and phone number) is valid and matches with his record. If yes, then the admin approves the registered user making them eligible to take part and cast their respective vote in the election.
-- The registered user (voter) following the approval from the admin casts their vote to the candidate of interest (from the voting page).
-- After some time, depending on the scale of the election the admin ends the election. As that happens the voting is closed and the results are displayed announcing the winner at the top of the results page.
-
----
-
-## Setting up the development environment
+Before you can start using the Online Voting System, you need to set up the development environment. Follow these steps:
 
 ### Requirements
 
-- [Node.js](https://nodejs.org)
-- [Truffle](https://www.trufflesuite.com/truffle)
-- [Ganache](https://github.com/trufflesuite/ganache-cli) (Cli)
-- [Metamask](https://metamask.io/) (Browser Extension)
+- [Node.js](https://nodejs.org) installed on your computer.
+- [Truffle](https://www.trufflesuite.com/truffle) framework installed globally using Node Package Manager (npm).
+- [Ganache](https://github.com/trufflesuite/ganache-cli) (CLI) installed globally using npm.
+- [Metamask](https://metamask.io/) browser extension installed.
 
-#### Getting the requirements
+#### Getting the Requirements
 
-1. Download and install **NodeJS**
+1. **Install Node.js:**
+   Download and install Node.js from [here](https://nodejs.org/en/download/ "Go to official NodeJS download page.").
 
-   Download and install NodeJS from [here](https://nodejs.org/en/download/ "Go to official NodeJS download page.").
-
-1. Install **truffle** and **ganache-cli** using node packager manager (npm)
+2. **Install Truffle and Ganache-cli:**
+   Open your terminal (or command prompt) and run the following commands:
 
    ```shell
    npm install -g truffle
    npm install -g ganache-cli
    ```
 
-1. Install **metamask** browser extension
+3. **Install Metamask:**
+   Download and install Metamask from [here](https://metamask.io/download "Go to official Metamask download page.") as a browser extension.
 
-   Download and install metamask from [here](https://metamask.io/download "Go to official metamask download page.").
+### Configuring the Project for Development
 
-### Configuring the project for development
-
-1. Clone this repository
+1. **Clone the Repository:**
+   Open your terminal (or command prompt) and run the following command to clone the project repository:
 
    ```shell
    git clone https://github.com/akashroy1/VotingPlatform-BKT3001.git
    cd VotingPlatform-BKT3001
    ```
 
-1. Run local Ethereum blockchain
+2. **Run Local Ethereum Blockchain (Ganache):**
+   Start the local Ethereum blockchain using Ganache by running the following command:
 
    ```shell
    ganache-cli
    ```
 
-   > Note: Do not close `ganache-cli` (the blockchain network needs to be running all the time)
+   > Note: Keep the `ganache-cli` running as the blockchain network needs to be active all the time during development.
 
-1. Configure metamask on the browser with the following details
+3. **Configure Metamask:**
+   - Open your browser with Metamask installed.
+   - Click on the Metamask extension icon.
+   - Select "Import Account" and use the private keys from Ganache to import accounts into Metamask.
 
-   New RPC URL: `http://localhost:8545`  
-   Chain ID: `1337`
-
-1. Import account(s) using private keys from ganache-cli to the metamask extension on the browser
-
-1. Deploy smart contract to the (local) blockchain network (i.e ganache-cli)
+4. **Deploy Smart Contract:**
+   In the terminal, navigate to the project root directory (`VotingPlatform-BKT3001`) and deploy the smart contract to the local blockchain network using Truffle:
 
    ```shell
-   # on the dVoting directory
    truffle migrate
    ```
 
-   > Note: Use `truffle migrate --reset` for re-deployments
+   > Note: If you want to redeploy the contract, use `truffle migrate --reset`.
 
-1. Launch the development server (frontend)
+5. **Launch the Development Server (Frontend):**
+   Now, navigate to the `client` directory and start the development server for the frontend:
 
    ```shell
    cd client
    npm install
    npm start
    ```
-   
----
+
+## User Registration and Voting
+
+1. **Access the Online Voting System:**
+   Open your web browser and navigate to the URL displayed when the frontend development server is running (`localhost:3000` by default).
+
+2. **Register as a Voter:**
+   - Connect your Metamask to the website.
+   - Click on the "Register" button to register as a voter.
+   - Fill in your details, including your blockchain account address, name, and phone number.
+   - Click on "Register" to submit your details.
+
+3. **Approval by Admin:**
+   - The system admin will verify your registration details.
+   - Once approved, you will be eligible to participate in the election.
+
+4. **Cast Your Vote:**
+   - Once the election starts, log in with your registered account.
+   - Click on the "Vote" button to cast your vote for your preferred candidate.
+   - Confirm the transaction in Metamask.
+
+5. **Election Results:**
+   - After the election ends, the admin will close the voting.
+   - The results will be displayed on the website, and the winner will be announced.
 
 Made with ❤️ by Akash, Samme, Jashwanth, Gourav.
